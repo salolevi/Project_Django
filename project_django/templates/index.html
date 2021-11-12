@@ -4,14 +4,9 @@
 
 <article class="container-tickets">
   <section class="container-tickets__ticket">
-    {% for analist in analists%}
-      <div class="ticket">
-        {{analist.name}}
-      </div>
-    {% endfor %}
     <section class="container-tickets__btn">
-      <button class="btn create-ticket-btn"><a href="create-ticket" target="_blank" id="create-ticket-a">Report an Incident</a></button>
-      <button class="btn">Refresh</button>
+      <button class="btn create-ticket-btn"><a href="create-ticket" id="create-ticket-a">Report an Incident</a></button>
+      <button class="btn"><a href="">Refresh</a></button>
     </section>
   </section>
 </article>

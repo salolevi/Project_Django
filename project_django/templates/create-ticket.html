@@ -1,21 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="" class="form__createticket" method="post">
+<h2 class="create-ticket__h2">Incident Report</h2>
+<article class="form-container">
+  <form action="" class="form__createticket" method="post">
   <div class="form-input">
-    
+    <label for="desc">Ingrese una breve descripcion: </label><br>
+    <input type="text" placeholder="..." name="desc" id="desc" required>
   </div>
   <div class="form-input">
-    
+    <label for="users">Usuario Afectado: </label><br>
+    <input list="users" name="user" id="user">
+    <datalist id="users">
+      {% for usuario in usuarios %}
+      <option value="{{usuario.usuario_id}}: {{usuario.lastn}}, {{usuario.name}}"></option>
+      {% endfor %}
+    </datalist>
   </div>
   <div class="form-input">
-    
+    <label for="analists">Analista Asignado: </label><br>
+    <input list="analists" name="analist" id="analist">
+    <datalist id="analists">
+      {% for analista in analistas %}
+      <option value="{{analista.analista_id}}: {{analista.lastn}}, {{analista.name}}"></option>
+      {% endfor %}
+    </datalist>
   </div>
   <div class="form-input">
-    
+    <label for="plantas">Planta: </label><br>
+    <input list="plantas" name="planta" id="planta">
+    <datalist id="plantas">
+      {% for planta in plantas %}
+      <option value="{{planta.planta_id}}: {{planta.plantaName}}, {{planta.plantaLocation}}"></option>
+      {% endfor %}
+    </datalist>
   </div>
   <div class="submit-input">
+    <button class="btn"><a href="redirect">Home</a></button>
     <input type="submit" class="submit-btn btn" value="Report Incident">
   </div>
 </form>
+</article>
+
 {% endblock %}

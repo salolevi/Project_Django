@@ -10,9 +10,9 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        analists = Analist.objects.all()
+        incidentes = Incident.objects.all()
 
-        context['analists'] = analists
+        context['incidentes'] = incidentes
 
         return context
 
@@ -21,4 +21,11 @@ class CreateTicketView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        usuarios = Usuario.objects.all()
+        analistas = Analist.objects.all()
+        plantas = Planta.objects.all()
+        context['usuarios'] = usuarios
+        context['analistas'] = analistas
+        context['plantas'] = plantas
+
         return context
