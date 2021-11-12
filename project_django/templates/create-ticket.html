@@ -4,13 +4,14 @@
 <h2 class="create-ticket__h2">Incident Report</h2>
 <article class="form-container">
   <form action="create-ticket/nuevo" class="form__createticket" method="post">
+    {% csrf_token %}
   <div class="form-input">
     <label for="desc">Ingrese una breve descripcion: </label><br>
     <input type="text" placeholder="..." name="desc" id="desc" required>
   </div>
   <div class="form-input">
     <label for="users">Usuario Afectado: </label><br>
-    <select id="users" name="user">
+    <select id="users" name="user" required>
       {% for usuario in usuarios %}
       <option value="{{usuario.id}}">{{usuario.lastn}}, {{usuario.name}}</option>
       {% endfor %}
@@ -18,7 +19,7 @@
   </div>
   <div class="form-input">
     <label for="analists">Analista Asignado: </label><br>
-    <select id="analists" name="analist">
+    <select id="analists" name="analist" required>
       {% for analista in analistas %}
       <option value="{{analista.id}}">{{analista.lastn}}, {{analista.name}}</option>
       {% endfor %}
@@ -26,14 +27,14 @@
   </div>
   <div class="form-input">
     <label for="plantas">Planta: </label><br>
-    <select id="plantas" name="planta">
+    <select id="plantas" name="planta" required>
       {% for planta in plantas %}
       <option value="{{planta.id}}">{{planta.plantaName}}, {{planta.plantaLocation}}</option>
       {% endfor %}
     </select>
   </div>
   <div class="submit-input">
-    <button class="btn"><a href="redirect">Home</a></button>
+    <button class="btn"><a href="/">Home</a></button>
     <input type="submit" class="submit-btn btn" value="Report Incident">
   </div>
 </form>
