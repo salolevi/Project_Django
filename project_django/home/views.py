@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from .models import Usuario, Analist, Planta, Incident
 
 
@@ -29,3 +29,6 @@ class CreateTicketView(TemplateView):
         context['plantas'] = plantas
 
         return context
+
+class CreateTicket(View):
+    def getp
