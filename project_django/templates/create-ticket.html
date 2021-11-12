@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2 class="create-ticket__h2">Incident Report</h2>
+<h2 class="h2">Incident Report</h2>
 <article class="form-container">
   <form action="create-ticket/nuevo" class="form__createticket" method="post">
     {% csrf_token %}
   <div class="form-input">
     <label for="desc">Ingrese una breve descripcion: </label><br>
-    <input type="text" placeholder="..." name="desc" id="desc" required>
+    <input type="text" placeholder="Ingrese una descripcion..." name="desc" id="desc" required>
   </div>
   <div class="form-input">
     <label for="users">Usuario Afectado: </label><br>

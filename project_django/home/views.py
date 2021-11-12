@@ -40,6 +40,57 @@ class CreateTicketView(View):
 
         return redirect('main_index')
 
+class UsuariosView(View):
+    template_name = 'usuarios.html'
+
+    def get(self, *args, **kwargs):
+        context = {}
+        users = Usuario.objects.all()
+        context['usuarios'] = users
+        return render(self.request, self.template_name, context)
+
+class CrearUsuario(View):
+    template_name = 'create-user.html'
+
+    def get(self, *args, **kwargs):
+        return render(self.request, self.template_name)
+
+    def post(self, *args, **kwargs):
+        new_user = Usuario()
+        new_user.name = self.request.POST.get('user_name', None)
+        new_user.lastn = self.request.POST.get('user_lastn', None)
+        new_user.sector = self.request.POST.get('user_sector', None)
+        new_user.costCenter = self.request.POST.get('user_costc', None)
+
+        new_user.save()
+
+        return redirect('usuarios')
+
+class AnalistasView(View):
+
+    template_name = 'analistas.html'
+
+    def get(self, *args, **kwargs):
+        context = {}
+        analistas = Analist.objects.all()
+        context['analistas'] = analistas
+        return render(self.request, self.template_name, context)
+
+class CrearAnalista(View):
+
+    template_name = 'create-analist.html'
+
+    def get(self, *args, **kwargs):
+        return render(self.request, self.template_name)
+    
+    def post(self, *args, **kwargs):
+
+        new_analist = Analist()
+        new_analist.name = self.request.POST.get('analist_name', None)
+        new_analist.lastn = self.request.POST.get('analist_lastn', None)
+        new_analist.save()
+
+        return redirect('analistas')
 
 # class CreateTicket(View):
 #

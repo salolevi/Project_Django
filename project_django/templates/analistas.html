@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h2">Registered Analists</h2>
+<article class="analistas-container">
+    {% for analista in analistas %}
+    <div class="analistas__analista">{{analista.id}}: {{analista.lastn}}, {{analista.name}}</div>
+    {% endfor %}
+    <div class="submit-input">
+        <button class="btn"><a href="/">Home</a></button>
+        <button class="btn"><a href="crear-analista">Register Analist</a></button>
+    </div>
+</article>
+
+{% endblock %}

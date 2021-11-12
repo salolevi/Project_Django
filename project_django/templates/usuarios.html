@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h2">Registered Users</h2>
+<article class="usuarios-container">
+    {% for usuario in usuarios %}
+    <div class="usuarios__usuario">{{usuario.id}}: {{usuario.lastn}}, {{usuario.name}}</div>
+    {% endfor %}
+    <div class="submit-input">
+        <button class="btn"><a href="/">Home</a></button>
+        <button class="btn"><a href="/crear-usuario">Register User</a></button>
+    </div>
+</article>
+{% endblock %}

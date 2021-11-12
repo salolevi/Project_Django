@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h2">Register Analist</h2>
+<article class="form-container">
+    <form action="crear-analista/nuevo" method="post">
+        {% csrf_token %}
+        <div class="form-input">
+            <label for="analist_name">Nombre: </label>
+            <input type="text" placeholder="Nombre del analista..." name="analist_name" id="analist_name">
+        </div>
+        <div class="form-input">
+            <label for="analist_lastn">Apellido: </label>
+            <input type="text" placeholder="Nombre del analista..." name="analist_lastn" id="analist_lastn">
+        </div>
+        <div class="submit-input">
+            <button class="btn"><a href="/">Home</a></button>
+            <input type="submit" class="submit-btn btn" value="Create">
+        </div>
+    </form>
+</article>
+{% endblock %}

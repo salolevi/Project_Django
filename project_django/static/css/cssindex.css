@@ -5,7 +5,6 @@ html, body {
 body {
     font-family: 'Red Hat Mono', monospace;
     font-size: 16px;
-    padding: 20px;
     background-color: #f4c0ff;
 }
 
@@ -15,7 +14,63 @@ h1 {
     color:#5E5694;
 }
 
-.create-ticket__h2 {
+
+.header {
+    height: 60px;
+    background-color: #5E5694;
+}
+
+.navbar {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
+.logo {
+    color: #EEE;
+}
+
+
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar ul li{
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: center;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0;
+}
+
+.navbar ul li{
+    height: inherit;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #EEE;
+    display: block;
+    padding: 17px 5px 0 5px;
+    height: calc(100% - 17px);
+    transition: background-color .2s, color .2s;
+}
+
+.navbar ul li a:hover{
+    background-color: #f4c0ff;
+    color: #5E5694;
+}
+.h2 {
     text-align: center;
     color: #5E5694;
     opacity: .9;
@@ -24,11 +79,16 @@ h1 {
 .container-tickets__btn {
     display: flex;
     justify-content: space-evenly;
+    margin: 30px 0;
 }
 
 .btn a {
     text-decoration: none;
     color: #EEE;
+}
+
+.btn:hover {
+    opacity: .8;
 }
 
 .btn a:active {
@@ -37,12 +97,18 @@ h1 {
 }
 
 .btn {
+    cursor: pointer;
     border: none;
     border-radius: 9999px;
-    padding: 10px 20px;
     background-color: #5E5694;
     color: #EEE;
     font-family: 'Varela Round', monospace;
+    transition: opacity .2s;
+}
+
+.btn a {
+    padding: 10px 20px;
+    display: block;
 }
 
 .create-ticket-btn {
@@ -67,11 +133,28 @@ h1 {
 .submit-btn {
     cursor: pointer;
     margin: 0;
+    padding: 10px 20px;
 }
 
 .form-container {
+    padding: 5px 20px;
     text-align: left;
-    margin: 50px 25% 0 25%;
+    margin: 25px 25% 0 25%;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 25px;
+}
+
+select {
+    opacity: .8;
+    padding: 5px 10px;
+    background-color: #FFF;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    border-radius: 20px;    
+}
+
+select:focus {
+    outline: 2px solid #5E5694;
 }
 
 label {
@@ -102,9 +185,31 @@ input[type="text"]:focus {
     opacity: 1;
 }
 
-input[list] {
-    opacity: .8;
-    border-radius: 20px;
-    border: none;
-    padding: 5px;
+input[type="text"]::placeholder {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+/*Comienzo CSS Usuarios */
+
+.usuarios-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.usuarios__usuario {
+    text-align: center
+}
+
+/* Comienzo CSS Analistas */
+
+.analistas-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.analistas__analista {
+    text-align: center
 }

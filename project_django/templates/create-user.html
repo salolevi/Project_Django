@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="h2">User Registration</h2>
+<article class="form-container">
+    <form action="crear-usuario/nuevo" class="form__createuser" method="post">
+        {% csrf_token %}
+        <div class="form-input">
+            <label for="user_name">Nombre: </label>
+            <input type="text" placeholder="Nombre del Usuario..." name="user_name" id="user_name">
+        </div>
+        <div class="form-input">
+            <label for="user_lastn">Apellido: </label>
+            <input type="text" placeholder="Apellido del Usuario..." name="user_lastn" id="user_lastn">
+        </div>
+        <div class="form-input">
+            <label for="user_sector">Sector: </label>
+            <input type="text" placeholder="Sector..." name="user_sector" id="user_sector">
+        </div>
+        <div class="form-input">
+            <label for="user_costc">Centro de Costos</label>
+            <input type="number" name="user_costc" id="user_costc">
+        </div>
+        <div class="submit-input">
+            <button class="btn"><a href="/">Home</a></button>
+            <input type="submit" class="submit-btn btn" value="Create">
+        </div>
+    </form>
+    
+</article>
+{% endblock %}
