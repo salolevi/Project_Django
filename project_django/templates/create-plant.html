@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="h2">Register Plant</h2>
+<article class="form-container">
+  <form action="crear-planta/nuevo" method="post">
+    {% csrf_token %}
+    <div class="form-input">
+      <label for="plant_name">Name: </label>
+      <input type="text" placeholder="Nombre del analista..." name="plant_name" id="plant_name">
+  </div>
+  <div class="form-input">
+      <label for="plant_location">Location: </label>
+      <input type="text" placeholder="Nombre del analista..." name="plant_location" id="plant_location">
+  </div>
+  <div class="submit-input">
+      <button class="btn"><a href="/">Home</a></button>
+      <input type="submit" class="submit-btn btn" value="Create">
+  </div>
+  </form>
+</article>
+{% endblock %}

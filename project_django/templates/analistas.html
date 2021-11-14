@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 <h2 class="h2">Registered Analists</h2>
-<article class="analistas-container">
+<article class="container-objects">
+    <section>
+    <div class="row">
+        <div class="column">ID</div>
+        <div class="column">Name</div>
+        <div class="column">Last Name</div>
+    </div>
     {% for analista in analistas %}
-    <div class="analistas__analista">{{analista.id}}: {{analista.lastn}}, {{analista.name}}</div>
+    <div class="row">
+        <div class="column">{{analista.id}}</div>
+        <div class="column">{{analista.name}}</div>
+        <div class="column">{{analista.lastn}}</div>
+    </div>
     {% endfor %}
+    </section> 
     <div class="submit-input">
         <button class="btn"><a href="/">Home</a></button>
         <button class="btn"><a href="crear-analista">Register Analist</a></button>
     </div>
 </article>
-
 {% endblock %}

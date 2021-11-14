@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 <h2 class="h2">Registered Users</h2>
-<article class="usuarios-container">
+<article class="container-objects">
+    <section>
+    <div class="row">
+        <div class="column">ID</div>
+        <div class="column">Name</div>
+        <div class="column">Last Name</div>
+    </div>
     {% for usuario in usuarios %}
-    <div class="usuarios__usuario">{{usuario.id}}: {{usuario.lastn}}, {{usuario.name}}</div>
+    <div class="row">
+        <div class="column">{{usuario.id}}</div>
+        <div class="column">{{usuario.name}}</div>
+        <div class="column">{{usuario.lastn}}</div>
+        <div class="column">{{usuario.sector}}</div>
+        <div class="column">{{usuario.costCenter}}</div>
+    </div>
     {% endfor %}
-    <div class="submit-input">
+    </section>   
+        <div class="submit-input">
         <button class="btn"><a href="/">Home</a></button>
         <button class="btn"><a href="/crear-usuario">Register User</a></button>
     </div>

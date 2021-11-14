@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="h2">Registered Plants</h2>
+<article class="container-objects">
+  <section>
+    <div class="row">
+      <div class="column">ID</div>
+      <div class="column">Name</div>
+      <div class="column">Location</div>
+    </div>
+    
+    {% for planta in plantas %}
+      <div class="row">
+        <div class="column">{{planta.id}}</div>
+        <div class="column">{{planta.plantaName}}</div>
+        <div class="column">{{planta.plantaLocation}}</div>
+      </div>
+    {%endfor%}
+  </section>
+  <div class="submit-input">
+    <button class="btn"><a href="/">Home</a></button>
+    <button class="btn"><a href="crear-planta">Register Plant</a></button>
+</div>
+</article>
+
+{% endblock %}

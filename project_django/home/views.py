@@ -91,7 +91,31 @@ class CrearAnalista(View):
         new_analist.save()
 
         return redirect('analistas')
+    
+class PlantasView(View):
+    
+    template_name = 'plantas.html'
+    
+    def get(self, *args, **kwargs):
+        context = {}
+        plantas = Planta.objects.all()
+        context['plantas'] = plantas
+        return render(self.request, self.template_name, context)
 
+class CrearPlanta(View):
+    
+    template_name = 'create-plant.html'
+    
+    def get(self, *args, **kwargs):
+        return render(self.request, self.template_name)
+    
+    def post(self, *args, **kwargs):
+        new_plant = Planta()
+        new_plant.plantaName = self.request.POST.get('plant_name', None)
+        new_plant.plantaLocation = self.request.POST.get('plant_location', None)
+        new_plant.save()
+        
+        return redirect('plantas')
 # class CreateTicket(View):
 #
 #     template_name = 'create-ticket.html'

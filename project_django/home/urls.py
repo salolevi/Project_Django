@@ -10,5 +10,8 @@ urlpatterns = [
     path('crear-usuario/nuevo', views.CrearUsuario.as_view(), name="createuser"),
     path('analistas', views.AnalistasView.as_view(), name='analistas'),
     path('crear-analista', views.CrearAnalista.as_view(), name='createanalist-form'),
-    path('crear-analista/nuevo', views.CrearAnalista.as_view(), name="createanalist")
+    path('crear-analista/nuevo', views.CrearAnalista.as_view(), name="createanalist"),
+    path('plantas', views.PlantasView.as_view(), name='plantas'),
+    path('crear-planta', views.CrearPlanta.as_view(), name='createplant-form'),
+    path('crear-planta/nuevo', views.CrearPlanta.as_view(), name='createplant')
 ]
