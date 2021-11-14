@@ -71,7 +71,19 @@ h1 {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
     color: #EEE;
+}
+
+.logo a {
+    color: #EEE;
+    text-decoration: none;
+}
+
+.logo a:active{
+    text-decoration: none;
 }
 
 
@@ -196,7 +208,9 @@ select {
     background-color: #FFF;
     font-family: 'Times New Roman', Times, serif;
     border: none;
-    border-radius: 20px;    
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;    
 }
 
 select:focus {
@@ -232,7 +246,10 @@ input[type="text"]:focus {
 }
 
 input[type="text"]::placeholder {
-    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05em;
+    opacity: .5;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
     font-style: italic;
 }
 
