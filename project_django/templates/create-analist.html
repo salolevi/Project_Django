@@ -6,11 +6,11 @@
         {% csrf_token %}
         <div class="form-input">
             <label for="analist_name">Nombre: </label>
-            <input type="text" placeholder="Nombre del analista..." name="analist_name" id="analist_name">
+            <input type="text" placeholder="Nombre del analista..." name="analist_name" id="analist_name" required>
         </div>
         <div class="form-input">
             <label for="analist_lastn">Apellido: </label>
-            <input type="text" placeholder="Nombre del analista..." name="analist_lastn" id="analist_lastn">
+            <input type="text" placeholder="Nombre del analista..." name="analist_lastn" id="analist_lastn" required>
         </div>
         <div class="submit-input">
             <button class="btn"><a href="/">Home</a></button>

@@ -6,19 +6,19 @@
         {% csrf_token %}
         <div class="form-input">
             <label for="user_name">Nombre: </label>
-            <input type="text" placeholder="Nombre del Usuario..." name="user_name" id="user_name">
+            <input type="text" placeholder="Nombre del Usuario..." name="user_name" id="user_name" required>
         </div>
         <div class="form-input">
             <label for="user_lastn">Apellido: </label>
-            <input type="text" placeholder="Apellido del Usuario..." name="user_lastn" id="user_lastn">
+            <input type="text" placeholder="Apellido del Usuario..." name="user_lastn" id="user_lastn" required>
         </div>
         <div class="form-input">
             <label for="user_sector">Sector: </label>
-            <input type="text" placeholder="Sector..." name="user_sector" id="user_sector">
+            <input type="text" placeholder="Sector..." name="user_sector" id="user_sector" required>
         </div>
         <div class="form-input">
             <label for="user_costc">Centro de Costos</label>
-            <input type="number" name="user_costc" id="user_costc">
+            <input type="number" name="user_costc" id="user_costc" required>
         </div>
         <div class="submit-input">
             <button class="btn"><a href="/">Home</a></button>
