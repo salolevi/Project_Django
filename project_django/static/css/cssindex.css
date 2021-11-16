@@ -227,7 +227,7 @@ input {
     margin-top: 5px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
     border: none;
     padding: 5px;
     width: 100%;
@@ -240,7 +240,7 @@ input[type="text"] {
     opacity: .8;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus, input[type="password"]:focus {
     outline: 2px solid #5E5694;
     opacity: 1;
 }
@@ -276,3 +276,26 @@ input[type="text"]::placeholder {
 .analistas__analista {
     text-align: center
 }
+
+/* Fin CSS Analistas */
+
+/* CSS Admin Page */
+
+.admin-property {
+    font-weight: bold;
+    padding: 15px 50px;
+    text-align: left;
+    border-bottom: 3px solid #5E5694;
+    color:#5E5694;
+}
+
+.admin-value {
+    opacity: .8;
+}
+
+.admin-property:last-child {
+    border-bottom: none;
+    text-align: center;
+}
+
+/* Fin CSS Admin Page */

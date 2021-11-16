@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title%}
+  Log In
+{% endblock%}
+
+{% block content%}
+<h2 class="h2">Log In</h2>
+<article class="form-container">
+<form action="login-form/login" method="post">
+  <div class="form-input">
+    <label for="admin_username">Username:</label>
+    <input type="text" name="admin_username" id="admin_username">
+  </div>
+  <div class="form-input">
+    <label for="admin_password">Password:</label>
+    <input type="password" name="admin_password" id="admin_password">
+  </div>
+  <div class="submit-input">
+      <button class="btn"><a href="/">Go Back</a></button>
+      <input type="submit" class="submit-btn btn" value="Log In">
+  </div>
+</form>
+</article>
+
+{% endblock%}

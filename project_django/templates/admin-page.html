@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title%}
+  Admin Site
+{% endblock%}
+
+{% block nav_list%}
+  <li><a href="admin-page">{{active_admin.lastn}}, {{active_admin.name}}</a></li>
+{% endblock %}
+
+{% block content%}
+<h2 class="h2">Your Profile</h2>
+<article class="form-container">
+  <section class="admin-property">Admin ID: <div class="admin-value">{{active_admin.id}}</div></section>
+  <section class="admin-property">Name: <div class="admin-value">{{active_admin.name}}</div></section>
+  <section class="admin-property">Last Name: <div class="admin-value">{{active_admin.lastn}}</div></section>
+  <section class="admin-property">Status: <div class="admin-value"></div>  <span style=" font-weight: bold; color: green; font-size: 1.2em;">Logged In</span></section>
+  <section class="admin-property">
+    <form action="admin-page/logout" method="post">
+    {% csrf_token %}
+      <input type="submit" value="Log Out" class="btn submit-btn">
+    </form>
+  </section>
+</article>
+
+{% endblock%}

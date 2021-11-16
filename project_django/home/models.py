@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import CharField
 
 
 # Create your models here.
@@ -12,6 +13,12 @@ class Usuario(models.Model):
         user = str(self.id) + ': ' + self.name + ' ' + self.lastn + ', ' + str(self.sector)
         return user
 
+class Administrador(models.Model):
+    name = models.CharField(max_length=50)
+    lastn = models.CharField(max_length=50)
+    username = models.CharField(max_length = 50)
+    password = models.CharField(max_length=50)
+    active = models.BooleanField(default=False)
 
 class Analist(models.Model):
     name = models.CharField(max_length=50)

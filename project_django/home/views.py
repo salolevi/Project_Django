@@ -1,20 +1,72 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
-from .models import Usuario, Analist, Planta, Incident
+from .models import Usuario, Analist, Planta, Incident, Administrador
 
+active_admin = Administrador()
+    
+def getActiveAdmin():
+    for admin in Administrador.objects.all():
+        if admin.active == True:
+            active_admin = admin
+            return active_admin
+        
+    return Administrador()
 
 # Create your views here.
-class IndexView(TemplateView):
+class IndexView(View):
     template_name = 'index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
+    
+    def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
+        context = {}
         incidentes = Incident.objects.all()
-
+        administradores = Administrador.objects.all()
         context['incidentes'] = incidentes
+        context['administradores'] = administradores
+        context['active_admin'] = active_admin
 
-        return context
+        return render(self.request, self.template_name, context)
+    
+class AdminView(View):
+    
+    template_name = 'admin-page.html'
+    
+    
+    def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
+        context = {}
+        context['active_admin'] = active_admin
+        return render(self.request, self.template_name, context)
+    
+    def post(self, *args, **kwargs):
+        active_admin.active = False
+        return redirect('main_index')
+    
+    
+class SignUpForm(View):
+    
+    template_name = 'signup-form.html'
+    
+    def get(self, *args, **kwargs):
+        return render(self.request, self.template_name)
+        
+    
+    def post(self, *args, **kwargs):
+        new_admin = Administrador()
+        new_admin.name = self.request.POST.get('admin_name', None)
+        new_admin.lastn = self.request.POST.get('admin_lastn', None)
+        new_admin.username = self.request.POST.get('admin_username', None)
+        new_admin.password = self.request.POST.get('admin_password', None)
+        new_admin.active = 'True'
+        new_admin.save()
+        
+        return redirect('main_index')
+
+class LogInForm(View):
+    template_name = 'login-form.html'
+    def get(self, *args, **kwargs):
+        return render(self.request, self.template_name)
+        
 
 class CreateTicketView(View):
     template_name = 'create-ticket.html'
