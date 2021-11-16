@@ -5,6 +5,9 @@
 {% block content %}
 <h2 class="h2">Registered Plants</h2>
 <article class="container-objects">
+  {% if plantas.count == 0%}
+  <h3 class="h2">No Registered Plants</h3>
+  {% else %}
   <section>
     <div class="row">
       <div class="column">ID</div>
@@ -19,11 +22,11 @@
         <div class="column">{{planta.plantaLocation}}</div>
       </div>
     {%endfor%}
+    {% endif %}
   </section>
   <div class="submit-input">
     <button class="btn"><a href="/">Home</a></button>
     <button class="btn"><a href="crear-planta">Register Plant</a></button>
 </div>
 </article>
-
 {% endblock %}

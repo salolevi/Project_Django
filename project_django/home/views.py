@@ -110,7 +110,7 @@ class CreateTicketView(View):
         new_incident.planta = Planta.objects.filter(id = self.request.POST.get('planta', None))[0]
         new_incident.save()
 
-        return redirect('main_index')
+        return redirect('incidents')
 
 class UsuariosView(View):
     template_name = 'usuarios.html'

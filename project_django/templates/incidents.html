@@ -15,6 +15,9 @@
 {% block content %}
 <h2 class="h2">Incidents</h2>
 <article class="container-objects">
+  {% if incidentes.count == 0%}
+  <h3 class="h2">No Incidents</h3>
+  {% else %}
   <section class="container-objects__ticket">
     <div class="row">
       <div class="column">ID</div>
@@ -42,6 +45,7 @@
       </div>
     </div>
     {% endfor %}
+    {% endif %}
   </section>
     <section class="container-objects__btn">
       <button class="btn create-ticket-btn"><a href="create-ticket" id="create-ticket-a">Report an Incident</a></button>

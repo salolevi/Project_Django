@@ -5,6 +5,9 @@
 {% block content %}
 <h2 class="h2">Registered Users</h2>
 <article class="container-objects">
+    {% if usuarios.count == 0%}
+    <h3 class="h2">No Registered Users</h3>
+    {% else %}
     <section>
     <div class="row">
         <div class="column">ID</div>
@@ -22,6 +25,7 @@
         <div class="column">{{usuario.costCenter}}</div>
     </div>
     {% endfor %}
+    {% endif %}
     </section>   
         <div class="submit-input">
         <button class="btn"><a href="/">Home</a></button>

@@ -4,7 +4,11 @@
 {% endblock %}
 {% block content %}
 <h2 class="h2">Registered Analists</h2>
+
 <article class="container-objects">
+{% if analistas.count == 0%}
+    <h3 class="h2">No Analists</h3>
+{% else %}
     <section>
     <div class="row">
         <div class="column">ID</div>
@@ -19,9 +23,11 @@
     </div>
     {% endfor %}
     </section> 
+    {% endif %}
     <div class="submit-input">
         <button class="btn"><a href="/">Home</a></button>
         <button class="btn"><a href="crear-analista">Register Analist</a></button>
     </div>
 </article>
+
 {% endblock %}
