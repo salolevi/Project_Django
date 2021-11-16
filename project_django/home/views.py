@@ -125,16 +125,21 @@ class UsuariosView(View):
     template_name = 'usuarios.html'
 
     def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
         context = {}
         users = Usuario.objects.all()
         context['usuarios'] = users
+        context['active_admin'] = active_admin
         return render(self.request, self.template_name, context)
 
 class CrearUsuario(View):
     template_name = 'create-user.html'
 
     def get(self, *args, **kwargs):
-        return render(self.request, self.template_name)
+        context = {}
+        active_admin = getActiveAdmin()
+        context['active_admin'] = active_admin
+        return render(self.request, self.template_name, context)
 
     def post(self, *args, **kwargs):
         new_user = Usuario()
@@ -152,9 +157,11 @@ class AnalistasView(View):
     template_name = 'analistas.html'
 
     def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
         context = {}
         analistas = Analist.objects.all()
         context['analistas'] = analistas
+        context['active_admin'] = active_admin
         return render(self.request, self.template_name, context)
 
 class CrearAnalista(View):
@@ -162,7 +169,10 @@ class CrearAnalista(View):
     template_name = 'create-analist.html'
 
     def get(self, *args, **kwargs):
-        return render(self.request, self.template_name)
+        context = {}
+        active_admin = getActiveAdmin()
+        context['active_admin'] = active_admin
+        return render(self.request, self.template_name, context)
     
     def post(self, *args, **kwargs):
 
@@ -178,9 +188,11 @@ class PlantasView(View):
     template_name = 'plantas.html'
     
     def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
         context = {}
         plantas = Planta.objects.all()
         context['plantas'] = plantas
+        context['active_admin'] = active_admin
         return render(self.request, self.template_name, context)
 
 class CrearPlanta(View):
@@ -188,7 +200,10 @@ class CrearPlanta(View):
     template_name = 'create-plant.html'
     
     def get(self, *args, **kwargs):
-        return render(self.request, self.template_name)
+        context = {}
+        active_admin = getActiveAdmin()
+        context['active_admin'] = active_admin
+        return render(self.request, self.template_name, context)
     
     def post(self, *args, **kwargs):
         new_plant = Planta()

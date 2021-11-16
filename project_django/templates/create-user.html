@@ -2,7 +2,17 @@
 {% block title%}
   User Registration
 {% endblock %}
+
+{% block nav_list %}
+  {% if active_admin.active == True %}
+  <li><a href="admin-page">{{active_admin.lastn}}, {{active_admin.name}}</a></li>
+  {% else %}
+  <li><a href="login-form">Log In</a></li>
+  <li><a href="signup-form">Sign Up</a></li>
+  {% endif %}
+{% endblock %}
 {% block content %}
+{% if active_admin.active == True %}
 <h2 class="h2">User Registration</h2>
 <article class="form-container">
     <form action="crear-usuario/nuevo" class="form__createuser" method="post">
@@ -29,4 +39,8 @@
         </div>
     </form>
 </article>
+{% else %}
+<h2 class="h2">You are not authenticated</h2>
+<p>Please <a href="login-form">Log In</a></p>
+{% endif %}
 {% endblock %}
