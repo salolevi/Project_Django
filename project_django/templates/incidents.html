@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title%}
+  Incidentes
+{% endblock %}
+
+{%block nav_list%}
+  {% if active_admin.active != False %}
+    <li><a href="admin-page">{{active_admin.lastn}}, {{active_admin.name}}</a></li>
+  {% else %}
+   <li><a href="login-form">Log In</a></li>
+   <li><a href="signup-form">Sign Up</a></li>
+  {% endif %}
+{% endblock%}
+
+{% block content %}
+<h2 class="h2">Incidents</h2>
+<article class="container-objects">
+  <section class="container-objects__ticket">
+    <div class="row">
+      <div class="column">ID</div>
+      <div class="column">Description</div>
+      <div class="column">Aff. User</div>
+      <div class="column">Ass. Analist</div>
+      <div class="column">Site</div>
+    </div>
+    {% for incident in incidentes %}
+    <div class="row">
+      <div class="column incident__id">
+        {{incident.id}}
+      </div>
+      <div class="column">
+        {{incident.desc}}
+      </div>
+      <div class="column">
+        {{incident.usuario.lastn}}, {{incident.usuario.name}}
+      </div>
+      <div class="column">
+        {{incident.analista.lastn}}, {{incident.analista.name}}
+      </div>
+      <div class="column">
+        {{incident.planta}}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+    <section class="container-objects__btn">
+      <button class="btn create-ticket-btn"><a href="create-ticket" id="create-ticket-a">Report an Incident</a></button>
+      <button class="btn"><a href="">Refresh</a></button>
+    </section>
+  </section>
+</article>
+
+{% endblock %}

@@ -4,6 +4,15 @@
   Report an Incident
 {% endblock %}
 
+{%block nav_list%}
+  {% if active_admin.active != False %}
+    <li><a href="admin-page">{{active_admin.lastn}}, {{active_admin.name}}</a></li>
+  {% else %}
+   <li><a href="login-form">Log In</a></li>
+   <li><a href="signup-form">Sign Up</a></li>
+  {% endif %}
+{% endblock%}
+
 {% block content %}
 <h2 class="h2">Incident Report</h2>
 <article class="form-container">

@@ -299,3 +299,20 @@ input[type="text"]::placeholder {
 }
 
 /* Fin CSS Admin Page */
+
+/* Index CSS */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 130px;
+    align-items: center;
+}
+
+.container .btn {
+    width: 300px;
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+/* Fin Index CSS */

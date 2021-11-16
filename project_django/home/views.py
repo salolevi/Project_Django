@@ -27,6 +27,21 @@ class IndexView(View):
 
         return render(self.request, self.template_name, context)
     
+class IncidentView(View):
+    
+    template_name = 'incidents.html'
+    
+    def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
+        context = {}
+        incidentes = Incident.objects.all()
+        administradores = Administrador.objects.all()
+        context['incidentes'] = incidentes
+        context['administradores'] = administradores
+        context['active_admin'] = active_admin
+
+        return render(self.request, self.template_name, context)
+    
 class AdminView(View):
     
     template_name = 'admin-page.html'
@@ -39,7 +54,10 @@ class AdminView(View):
         return render(self.request, self.template_name, context)
     
     def post(self, *args, **kwargs):
-        active_admin.active = False
+        for admin in Administrador.objects.all():
+            if admin.active == True:
+                admin.active = False
+                admin.save()
         return redirect('main_index')
     
     
@@ -72,6 +90,7 @@ class CreateTicketView(View):
     template_name = 'create-ticket.html'
 
     def get(self, *args, **kwargs):
+        active_admin = getActiveAdmin()
         context = {}
         usuarios = Usuario.objects.all()
         analistas = Analist.objects.all()
@@ -79,6 +98,7 @@ class CreateTicketView(View):
         context['usuarios'] = usuarios
         context['analistas'] = analistas
         context['plantas'] = plantas
+        context['active_admin'] = active_admin
 
         return render(self.request, self.template_name, context)
 
