@@ -84,6 +84,15 @@ class LogInForm(View):
     template_name = 'login-form.html'
     def get(self, *args, **kwargs):
         return render(self.request, self.template_name)
+
+    def post(self, *args, **kwargs):
+        username = self.request.POST.get('admin_username', None)
+        password = self.request.POST.get('admin_password', None)
+        for admin in Administrador.objects.all():
+            if admin.username == username and admin.password == password:
+                admin.active = True
+                admin.save()
+        return redirect('main_index')
         
 
 class CreateTicketView(View):

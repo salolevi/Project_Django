@@ -14,13 +14,14 @@
 <h2 class="h2">Log In</h2>
 <article class="form-container">
 <form action="login-form/login" method="post">
+  {% csrf_token %}
   <div class="form-input">
     <label for="admin_username">Username:</label>
-    <input type="text" name="admin_username" id="admin_username">
+    <input type="text" name="admin_username" id="admin_username" placeholder="Username...">
   </div>
   <div class="form-input">
     <label for="admin_password">Password:</label>
-    <input type="password" name="admin_password" id="admin_password">
+    <input type="password" name="admin_password" id="admin_password" placeholder="Password...">
   </div>
   <div class="submit-input">
       <button class="btn"><a href="/">Go Back</a></button>

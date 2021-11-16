@@ -3,9 +3,10 @@ from home import views
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="main_index"),
-    path('signup-form', views.SignUpForm.as_view(), name='signup'),
-    path('signup-form/create', views.SignUpForm.as_view(), name='signup-create'),
-    path('login-form', views.LogInForm.as_view(), name="login"),
+    path('signup-form', views.SignUpForm.as_view(), name='signup-form'),
+    path('signup-form/create', views.SignUpForm.as_view(), name='signup'),
+    path('login-form', views.LogInForm.as_view(), name='login-form'),
+    path('login-form/login', views.LogInForm.as_view(), name='login'),
     path('admin-page', views.AdminView.as_view(), name='admin'),
     path('admin-page/logout', views.AdminView.as_view(), name='admin-logout'),
     path('incidents', views.IncidentView.as_view(), name='incidents'),
